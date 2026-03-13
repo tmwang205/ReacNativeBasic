@@ -1,36 +1,50 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   //data-type
   //string
-  const [name, setName] = useState<string>("Xin chào bạn");
+  const [name, setName] = useState<string>("");
 
-  //number
-  const [age, setAge] = useState<number>(21);
+  // //number
+  // const [age, setAge] = useState<number>(21);
 
-  //null, undefined, boolean
-  const test = null;
+  // //null, undefined, boolean
+  // const test = null;
 
-  //object 
-  const [person, setPerson] = useState({
-    name: "Quang",
-    age: 21
-  });
+  // //object 
+  // const [person, setPerson] = useState({
+  //   name: "Quang",
+  //   age: 21
+  // });
 
-  //array
-  const [person2, setPerson2] = useState([{
-    name: "Quang",
-    age: 21
-  }])
+  // //array
+  // const [person2, setPerson2] = useState([{
+  //   name: "Quang",
+  //   age: 21
+  // }])
 
   return (
     <View style={styles.container}>
       <View>
+
+        {/* <Text style={styles.test1}>{JSON.stringify(person)}</Text> */}
+        <TextInput
+          onChangeText={value => setName(value)}
+          value={name}
+          style={styles.textInput}
+          autoCapitalize='none'
+          autoCorrect={true}
+        // keyboardType='number-pad'
+        // maxLength={2}
+        // multiline
+        />
         <Text style={styles.test1}>{name}</Text>
-        <Text style={styles.test1}>{JSON.stringify(person)}</Text>
       </View>
+
+      <Button title='Add me' />
+
       <Text style={styles.test1}>Hello world with
         <Text style={styles.test2}>Quang</Text>
       </Text>
@@ -45,6 +59,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     // alignItems: 'center',
     // justifyContent: 'center',
+    paddingTop: 20,
+    paddingHorizontal: 20
   },
 
   test1: {
@@ -54,5 +70,12 @@ const styles = StyleSheet.create({
 
   test2: {
     color: "yellow"
+  },
+
+  textInput: {
+    borderWidth: 2,
+    borderColor: "black",
+    padding: 7,
+    borderRadius: 10
   },
 });
